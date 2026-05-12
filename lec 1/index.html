@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lec 1 JS</title>
+</head>
+<body>
+    <script>
+        // 1. Variables- var,let,const
+
+        var name ="Prachi";
+        let age =20;
+        const PI=3.14;
+
+        console.log(name, age, PI);
+        
+
+        // 2. Data Types
+
+        // Primitive
+
+        // 1. string
+
+        let firstName = "Prachi";
+        let greeting = 'Hello, world!';
+        let templateStr = `My name is ${firstName}`;
+        console.log(typeof firstName);
+
+        // 2. Number(int & float)
+
+        let num1=42;
+        let num2=3.14;
+        let negative=-10;
+        console.log(typeof num1);
+
+        // Special number values
+
+        console.log(10/0);
+        console.log(-10/0);
+        console.log("abc"*2);
+        console.log(isNaN("abc"));
+
+        // 3. Boolean
+
+        let isLoggedIn=true;
+        let isAdmin=false;
+        console.log(typeof isLoggedIn);
+
+        // 4. Undefined
+
+        let city;
+        console.log(city);
+        console.log(typeof city);
+
+        // 5. Null
+
+        let user=null;
+        console.log(user);
+        console.log(typeof user);
+
+        // 6. BigInt
+        let bigNumber=79832480924292409890;
+        console.log(typeof bigNumber);
+
+        // 7. Symbol
+
+        let sym1=Symbol("id");
+        let sym2=Symbol("id");
+        console.log(sym1==sym2);
+        console.log(typeof sym1);
+
+        // Non-Primitive
+
+        // 8. object
+
+        let person={name: "Prachi", age: 22};
+        let colors=["red", "green", "blue"];
+        console.log(typeof person);
+        console.log(typeof colors);
+
+
+        // 3. operators
+
+        // Arithmetic Operators
+
+        let a=10, b=3;
+
+        console.log(a+b);
+        console.log(a-b);
+        console.log(a*b);
+        console.log(a/b);
+        console.log(a%b);
+        console.log(a**b);
+
+        // Increment / Decrement
+
+        let x=5;
+        console.log(x++);
+        console.log(x);
+        console.log(++x);
+        console.log(x--);
+
+        // Assignment Operetors
+
+        let score=10;
+        score+=5;
+        score-=3;
+        score*=2;
+        score/=4;
+        score%=4;
+        console.log(score);
+
+        // Comparison Operators
+
+        console.log(5>3);
+        console.log(5<3);
+        console.log(5>=5);
+        console.log(5<=4);
+
+        // logical Operator
+
+        console.log(true && false);
+        console.log(true || false);
+        console.log(!true);
+
+        // string Operator
+        
+        let str1="Hello";
+        let str2="world";
+        console.log(str1+" "+str2);
+
+        // 4. == vs ===
+
+        console.log(5=="5");
+        console.log(0==false);
+        console.log(null==undefined);
+        console.log(""==false);
+
+        console.log(5==="5");
+        console.log(0===false);
+        console.log(null===undefined);
+        console.log(""===false);
+
+        // != vs !==
+
+        console.log(5!="5");
+        console.log(0!=="5");
+
+        // 5. Type Casting
+
+        // Implicit
+
+        console.log("10"+5);
+
+        console.log("10"-5);
+        console.log("10"*2);
+        console.log("10"/2);
+
+        console.log(true+1);
+        console.log(false+1);
+
+        console.log(undefined+1);
+        console.log(undefined+"hi");
+
+        // Explicit
+
+        console.log(Number("42"));       
+        console.log(Number("3.14"));     
+        console.log(Number(""));         
+        console.log(Number("abc"));      
+        console.log(Number(true));       
+        console.log(Number(false));      
+        console.log(Number(null));       
+        console.log(Number(undefined)); 
+        
+        console.log(parseInt("42px"));
+        console.log(parseInt("3.9"));
+        console.log(parseFloat("3.9"));
+        console.log(parseInt("abc"));
+
+        console.log(String(42));
+        console.log(String(true));
+        console.log(String(null));
+        console.log((42).toString());
+
+        console.log(Boolean(0));
+        console.log(Boolean(""));
+        console.log(Boolean(null));
+        console.log(Boolean(undefined));
+        console.log(Boolean(NaN));
+
+        console.log(Boolean(1));
+        console.log(Boolean("Hello"));
+        console.log(Boolean([]));
+        console.log(Boolean({}));
+
+        console.log(!!0);
+        console.log(!!"Hello");
+        console.log(!!null);
+
+        // 6. typeof OPERATOR
+
+       console.log(typeof 42);
+       console.log(typeof "hello");
+       console.log(typeof true);
+       console.log(typeof undefined);
+       console.log(typeof null);
+       console.log(typeof {});
+       console.log(typeof []);
+       console.log(typeof function(){});
+       console.log(typeof Symbol());
+
+    </script>
+</body>
+</html>
