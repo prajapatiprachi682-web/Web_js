@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let age=18;
+    if(age>=18)
+    {
+        console.log("Adult hai-vote de sakta hai");
+    }
+    else
+    {
+        console.log("Minor hai-vote nhi de sakta")
+    }
+
+    let marks=75;
+    if(marks>=90)
+    {
+        console.log("Grade: A+");
+    }
+    else if(marks>=75)
+    {
+        console.log("Grade: A");
+    }
+    else if(marks>=60)
+    {
+       console.log("Grade: B");
+    }
+    else if(marks>=40)
+    {
+        console.log("Grade: C");
+    }
+    else
+    {
+        console.log("Grade: Fail");
+    }
+
+    let isLoggedIn=true;
+    let isAdmin=false;
+
+    if(isLoggedIn)
+    {
+        if(isAdmin)
+    {
+        console.log("Admin Dashboard");
+    }
+    else
+    {
+        console.log("User Dashboard");
+    }
+    }
+    else
+    {
+        console.log("Please Login First");
+    }
+
+
+    let num=10;
+    let result=num%2==0?"Even":"Odd";
+    console.log(result);
+
+    let day="Monday";
+    switch (day)
+    {
+        case "Monday":
+        console.log("Week ka pehla din");
+        break;
+
+        case "Friday":
+        console.log("TGIF!");
+        break;
+
+        case "Saturday":
+        case "Sunday":
+            console.log("Weekend hai!");
+            break;
+            default:
+                console.log("Normal Weekday")
+    }
+
+
+    let person={
+        name:"Ankit",
+        age: 22,
+        isStudent:true,
+        address:{
+            city:"Indore",
+            state:"MP"
+        }
+    };
+
+    console.log(person.name);
+    console.log(person["age"]);
+    console.log(person.address.city);
+
+    person.email="prachi@gmail.com";
+    console.log(person.email);
+
+    person.age=23;
+    console.log(person.age);
+
+    delete  person.isStudent;
+    console.log(person.isStudent);
+
+    console.log("name"in person);
+    console.log("Salary"in person);
+    </script>
+</body>
+</html>
