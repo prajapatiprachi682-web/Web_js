@@ -108,6 +108,163 @@
 
     console.log("name"in person);
     console.log("Salary"in person);
+
+    let calculator={
+        num1: 10,
+        num2: 5,
+        add:function()
+        {
+            return this.num1+this.num2;
+        },
+    subtract()
+    {
+        return this.num1-this.num2;
+    }
+};
+console.log(calculator.add());
+console.log(calculator.subtract());
+
+for(let key in person)
+{
+    console.log(key,":",person[key]);
+}
+let obj1={val:10};
+let obj2=obj1;
+obj2.val=99;
+console.log(obj1.val);
+
+let original={x:1, y:2};
+let copy={...original};
+copy.x=99;
+console.log(original.x);
+console.log(copy.x);
+
+
+// Array
+
+let fruits=["apple", "banana", "mango"];
+//Access
+console.log(fruits[0]);
+console.log(fruits[2]);
+console.log(fruits[10]);
+
+// length
+console.log(fruits.length);
+
+// Array update
+fruits[1]="kiwi";
+console.log(fruits);
+
+// for loop
+
+for(let i=0;i<fruits.length; i++)
+{
+    console.log(i, fruits[i]);
+}
+
+for(let fruit of fruits)
+{
+    console.log(fruit);
+}
+
+// Function
+
+greet("Prachi");
+function greet(name)
+{
+    console.log("Hello, "+ name +"!");
+}
+
+const square=function(n)
+{
+    return n*n;
+};
+console.log(square(5));
+
+const add=(a,b)=>a+b;
+console.log(add(3,4));
+
+const multiply=(a,b)=>{
+    let result=a*b;
+    return result;
+};
+console.log(multiply(3,4));
+
+const double=n=>n*2;
+console.log(double(7));
+
+const sayHello=()=>console.log("Hello!");
+sayHello();
+
+function createUser(name, role="user", active=true)
+{
+    return{name, role, active};
+}
+console.log(createUser("Prachi"));
+console.log(createUser("Admin","admin"));
+
+function sumAll(...numbers)
+{
+    let total=0;
+    for(let n of numbers)total+=n;
+    return total;
+}
+console.log(sumAll(1,2,3));
+console.log(sumAll(1,2,3,4,5));
+
+function first()
+{
+    console.log("first() start");
+    second();
+    console.log("first() end");
+}
+
+function second()
+{
+    console.log("second() start");
+    third();
+    console.log("second end")
+}
+
+function third()
+{
+    console.log("third()- bottom of the stack");
+}
+first();
+
+
+console.log(hoistedVar);
+var hoistedVar="I am hoisted";
+console.log(hoistedVar);
+
+hoistedfunction();
+
+function hoistedfunction()
+{
+    console.log("Hoisted function!");
+}
+var hoistedExpr=function()
+{
+    console.log("Not hoisted");
+};
+
+
+let globalVar="I am global";
+function scopeDemo()
+{
+    let funcVar="I am function scoped";
+    console.log(globalVar);
+    
+    if(true)
+{
+    let blockVar="I am block scoped";
+    var varInBlock="var ignores blocks";
+    console.log(blockVar);
+}
+console.log(varInBlock);
+}
+scopeDemo();
+console.log(globalVar);
     </script>
 </body>
 </html>

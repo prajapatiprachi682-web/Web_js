@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz App</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background: linear-gradient(135deg,#1d4ed8,#2563eb,#3b82f6);
+      overflow:hidden;
+    }
+
+    /* Floating circles background */
+    .circle{
+      position:absolute;
+      border-radius:50%;
+      background: rgba(255,255,255,0.2);
+      animation: float 6s infinite ease-in-out;
+    }
+
+    .circle:nth-child(1){
+      width:80px;
+      height:80px;
+      top:15%;
+      left:10%;
+    }
+
+    .circle:nth-child(2){
+      width:50px;
+      height:50px;
+      bottom:20%;
+      right:15%;
+      animation-duration:8s;
+    }
+
+    .circle:nth-child(3){
+      width:30px;
+      height:30px;
+      top:50%;
+      right:30%;
+      animation-duration:5s;
+    }
+
+    @keyframes float{
+      0%{ transform:translateY(0px);}
+      50%{ transform:translateY(-20px);}
+      100%{ transform:translateY(0px);}
+    }
+
+    .quiz-box{
+      width:380px;
+      background:#fff;
+      padding:25px;
+      border-radius:15px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.2);
+      z-index:1;
+    }
+
+    .quiz-box h2{
+      text-align:center;
+      margin-bottom:20px;
+      color:#333;
+    }
+
+    .top{
+      display:flex;
+      justify-content:space-between;
+      margin-bottom:15px;
+      color:#666;
+      font-size:14px;
+    }
+
+    .question{
+      font-size:18px;
+      margin-bottom:20px;
+      font-weight:bold;
+      color:#222;
+    }
+
+    .option{
+      width:100%;
+      padding:12px;
+      margin:10px 0;
+      border:2px solid #dbeafe;
+      border-radius:8px;
+      background:#f8fafc;
+      cursor:pointer;
+      transition:0.3s;
+      text-align:left;
+    }
+
+    .option:hover{
+      background:#dbeafe;
+    }
+
+    .correct{
+      background:#22c55e !important;
+      color:white;
+      border:none;
+    }
+
+    .wrong{
+      background:#ef4444 !important;
+      color:white;
+      border:none;
+    }
+
+    #nextBtn{
+      width:100%;
+      padding:12px;
+      margin-top:15px;
+      border:none;
+      border-radius:8px;
+      background:#2563eb;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    #nextBtn:hover{
+      background:#1e40af;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Background Circles -->
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+
+  <!-- Quiz Box -->
+  <div class="quiz-box">
+
+    <h2>🧠 Quiz Time!</h2>
+
+    <div class="top">
+      <p>Score: <span id="score">0</span></p>
+      <p>Question: <span id="qNo">1</span>/3</p>
+    </div>
+
+    <div class="question" id="question">
+      HTML ka full form kya hai?
+    </div>
+
+    <div id="options"></div>
+
+    <button id="nextBtn">Next Question</button>
+
+  </div>
+
+  <script>
+    const quizData = [
+      {
+        question: "HTML ka full form kya hai?",
+        options: [
+          "Hyper Text Markup Language",
+          "High Text Machine Language",
+          "Hyper Tool Multi Language",
+          "Home Text Markup Language"
+        ],
+        answer: "Hyper Text Markup Language"
+      },
+
+      {
+        question: "CSS kis kaam aati hai?",
+        options: [
+          "Styling",
+          "Database",
+          "Backend",
+          "Server"
+        ],
+        answer: "Styling"
+      },
+
+      {
+        question: "JavaScript ka use kis liye hota hai?",
+        options: [
+          "Website ko interactive banane ke liye",
+          "Cooking",
+          "Photo Editing",
+          "Gaming Console"
+        ],
+        answer: "Website ko interactive banane ke liye"
+      }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    const question = document.getElementById("question");
+    const options = document.getElementById("options");
+    const nextBtn = document.getElementById("nextBtn");
+    const scoreText = document.getElementById("score");
+    const qNo = document.getElementById("qNo");
+
+    function loadQuestion(){
+      options.innerHTML = "";
+
+      qNo.innerText = currentQuestion + 1;
+
+      const current = quizData[currentQuestion];
+
+      question.innerText = current.question;
+
+      current.options.forEach(option => {
+
+        const btn = document.createElement("button");
+
+        btn.innerText = option;
+
+        btn.classList.add("option");
+
+        btn.addEventListener("click", () => checkAnswer(btn, current.answer));
+
+        options.appendChild(btn);
+
+      });
+    }
+
+    function checkAnswer(selectedBtn, correctAnswer){
+
+      const allOptions = document.querySelectorAll(".option");
+
+      allOptions.forEach(btn => {
+        btn.disabled = true;
+
+        if(btn.innerText === correctAnswer){
+          btn.classList.add("correct");
+        }
+      });
+
+      if(selectedBtn.innerText === correctAnswer){
+        score++;
+        scoreText.innerText = score;
+      } else {
+        selectedBtn.classList.add("wrong");
+      }
+    }
+
+    nextBtn.addEventListener("click", () => {
+
+      currentQuestion++;
+
+      if(currentQuestion < quizData.length){
+        loadQuestion();
+      } else {
+
+        question.innerHTML = `🎉 Quiz Completed! <br> Your Score: ${score}/${quizData.length}`;
+
+        options.innerHTML = "";
+
+        nextBtn.style.display = "none";
+      }
+
+    });
+
+    loadQuestion();
+  </script>
+
+</body>
+</html>
