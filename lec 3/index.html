@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let fruits=["apple", "banana", "mango", "kiwi", "grapes"];
+        console.log(fruits[0]);
+        console.log(fruits.length);
+
+        let nums=[1,2,3];
+        let newLen=nums.push(4,5);
+        console.log(nums);
+        console.log(newLen);
+
+        let last=nums.pop();
+        console.log(last);
+        console.log(nums);
+
+        nums.unshift(0);
+        console.log(nums);
+
+        let first=nums.shift();
+        console.log(first);
+        console.log(nums);
+
+        let colors=["red","green","blue","yellow"];
+        console.log(colors.indexOf("green"));
+        console.log(colors.indexOf("pink"));
+
+        console.log(colors.includes("blue"));
+        console.log(colors.includes("black"));
+
+        let numbers=[5,4,8,130,54];
+        let found=numbers.find(n=>n>10);
+        console.log(found);
+
+        let foundIdx=numbers.findIndex(n=>n>10);
+        console.log(foundIdx);
+
+        let result = numbers.filter(n => n > 10);
+        console.log(result);
+
+        let arr=[1,2,3,4,5];
+
+        let removed=arr.splice(1,2);
+        console.log(arr);
+        console.log(removed);
+
+        let arr2 = ["a", "b", "c", "d"];
+        arr2.splice(1, 1, "X", "Y"); 
+        console.log(arr2);
+
+        arr2.splice(2, 0, "Z");
+        console.log(arr2);
+
+        let letters = ["a", "b", "c", "d", "e"];
+        let sliced = letters.slice(1, 4); 
+        console.log(sliced);
+        console.log(letters);
+        
+        console.log(letters.slice(-2));
+        console.log(letters.slice(1, -1));
+
+        let a = [1, 2, 3];
+        let b = [4, 5, 6];
+        let c = [7, 8, 9];
+        let combined = a.concat(b, c);
+        console.log(combined); 
+
+        let words=["Hello","world","JS"];
+        console.log(words.join(" "));
+        console.log(words.join("-"));
+        console.log(words.join(""));
+        console.log(words.join());
+
+
+        let nested=[1,[2,3],[4,[5,6]]];
+        console.log(nested.flat());
+        console.log(nested.flat(2));
+        console.log(nested.flat(Infinity));
+
+
+        let animals=["cat","ant","dog","bat"];
+        animals.sort();
+        console.log(animals);
+
+
+        let scores=[40,100,1,5,25];
+        scores.sort();
+        console.log(scores);
+
+        scores.sort((a,b)=>a-b);
+        console.log(scores);
+
+        scores.sort((a,b)=>b-a);
+        console.log(scores);
+
+        let rev=[1,2,3,4,5];
+        rev.reverse();
+        console.log(rev);
+
+
+        let students=["Ankit","Priya","Rahul","Sneha"];
+        for(let i=0; i<students.length; i++)
+    {
+        console.log(i, students[i]);
+    }
+
+    for(let student of students)
+    {
+        console.log(student);
+    }
+
+    for(let index in students)
+    {
+        console.log(index, students[index]);
+    }
+
+    let person={name:"Ankit", age:22, city:"Indore"};
+    for(let key in person)
+    {
+        console.log(key, ":", person[key]);
+    }
+
+    let prices=[100,200,300,400];
+    prices.forEach(function(price, index, array)
+    {
+        console.log(`Index ${index}: ₹${price}`);
+    });
+
+    prices.forEach((price, index)=>{
+        console.log(index, price);
+    });
+
+
+    prices.forEach(price=>console.log(price));
+
+
+
+    let nums2=[1,2,3,4,5];
+    let doubled=nums2.map(n=>n*2);
+    console.log(doubled);
+    console.log(nums2);
+
+    let names=["prachi","pravan","princy"];
+    let upperNames=names.map(name=>name.toUpperCase());
+    console.log(upperNames);
+
+    let users=[
+        {id:1, name:"Prachi", age:20},
+        {id:2, name:"Pravan", age:22},
+        {id:3, name:"Princy", age:21},
+    ];
+    let userNames=users.map(user=>user.name);
+    console.log(userNames);
+    let userCards=users.map(user=>({
+        id:user.id,
+        displayName:user.name.toUpperCase(),
+        isAdult:user.age>=18
+    }));
+
+
+    let allNums=[1,2,3,4,5,6,7,8,9,10];
+    let evens=allNums.filter(n=>n%2==0);
+    console.log(evens);
+
+    let odds=allNums.filter(n=>n%2!==0);
+    console.log(odds);
+
+
+    let greaterThan5=allNums.filter(n=>n>5);
+    console.log(greaterThan5);
+
+    let products=
+    </script>
+</body>
+</html>
