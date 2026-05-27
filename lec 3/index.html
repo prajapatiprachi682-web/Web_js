@@ -175,7 +175,59 @@
     let greaterThan5=allNums.filter(n=>n>5);
     console.log(greaterThan5);
 
-    let products=
+    let products=[
+  { name: "Laptop",  price: 50000, inStock: true  },
+  { name: "Phone",   price: 20000, inStock: false  },
+  { name: "Tablet",  price: 30000, inStock: true   },
+  { name: "Watch",   price: 5000,  inStock: false  },
+  { name: "Monitor", price: 15000, inStock: true   }
+];
+let available = products.filter(p => p.inStock);
+console.log(available);
+
+let affordable = products.filter(p => p.price < 20000 && p.inStock);
+console.log(affordable);
+
+let nums3 = [1, 2, 3, 4, 5];
+let sum = nums3.reduce((acc, curr) => acc + curr, 0);
+console.log(sum); 
+
+let product = nums3.reduce((acc, curr) => acc * curr, 1);
+console.log(product); 
+
+let maxVal = nums3.reduce((acc, curr) => curr > acc ? curr : acc, nums3[0]);
+console.log(maxVal); 
+
+let cart = [
+  { item: "Shirt",  price: 500,  qty: 2 },
+  { item: "Jeans",  price: 1200, qty: 1 },
+  { item: "Shoes",  price: 2000, qty: 1 }
+];
+
+let totalBill = cart.reduce((acc, curr) => acc + (curr.price * curr.qty), 0);
+console.log(totalBill); 
+
+let langs = ["js", "py", "js", "java", "py", "js"];
+let count = langs.reduce((acc, lang) => {
+  acc[lang] = (acc[lang] || 0) + 1;
+  return acc;
+}, {});
+console.log(count); 
+
+
+let employees = [
+  { name: "Ankit",  dept: "Tech",    salary: 60000 },
+  { name: "Priya",  dept: "HR",      salary: 45000 },
+  { name: "Rahul",  dept: "Tech",    salary: 75000 },
+  { name: "Sneha",  dept: "Tech",    salary: 55000 },
+  { name: "Vikram", dept: "Finance", salary: 50000 }
+];
+
+let techTotal = employees
+  .filter(emp => emp.dept === "Tech")
+  .map(emp => emp.salary) 
+  .reduce((acc, sal) => acc + sal, 0);
+    console.log(techTotal);
     </script>
 </body>
 </html>

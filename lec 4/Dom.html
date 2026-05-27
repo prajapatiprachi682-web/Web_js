@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 5 - DOM in Javascript</title>
+    <style>
+        body{
+            font-family: Arial;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        h1{
+            color: darkblue;
+        }
+
+        .box{
+            width: 250px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        button{
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: darkblue;
+            color: white;
+            border-radius: 5px;
+        }
+       
+        .dark{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="heading">DOM Lecture</h1>
+    <p class="text">
+        Welcme to Javascript DOM Class
+    </p>
+    <p class="text">
+        We are learning selectors and events
+    </p>
+<div class="box" id="box">
+    This is box
+</div>
+<button onclick="changeText()">
+    Change heading
+</button>
+
+<button onclick="changeColor()">
+    Change Box changeColor
+</button>
+
+<button onclick="toggleTheme()">
+    Toggle Theme
+</button>
+
+<button onclick="addContent()">
+    Add Content
+</button>
+
+<script>
+    let heading=document.getElementById("heading");
+    console.log(heading);
+
+    let text=document.getElementsByClassName("text");
+    console.log(text);
+
+    let paragraph=document.getElementsByTagName("p");
+    console.log(paragraph);
+
+    let box=document.querySelector(".box");
+    console.log(box);
+
+    let allText=document.querySelector(".text");
+    console.log(allText);
+
+    console.log(heading.innerText);
+
+    box.innerHTML="<h3>Hello Students</h3>";
+
+    function changeText(){
+        heading.innerText="Heading Changed Successfully";
+    }
+
+    function changeColor(){
+        box.style.backgroundColor = "orange";
+        box.style.color = "white";
+    }
+
+    function toggleTheme(){ 
+        document.body.classList.toggle("dark");
+
+    }
+
+    function addContent(){
+        let newPara = document.createElement("p");
+        newPara.innerText = "New Paragraph Added";
+        document.body.appendChild(newPara);
+    }
+
+    box.addEventListener("mouseenter", function(){
+        box.style.backgroundColor = "green";
+        box.style.color = "white";
+    });
+
+    box.addEventListener("mouseleave", function(){
+        box.style.backgroundColor = "white";
+        box.style.color = "black";
+    });
+
+    let input=document.createElement("button");
+    btn.innerText="Show Name";
+
+    document.body.appendChild(btn);
+    btn.onclick=function(){
+        alert(input.value);
+    }
+</script>
+</body>
+</html>
