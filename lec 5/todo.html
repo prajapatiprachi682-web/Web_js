@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+
+    <style>
+        body{
+            font-family: Arial;
+            background-color: #f2f2f2;
+            padding: 30px;
+        }
+
+        h1{
+            color: darkblue;
+        }
+
+        .container{
+            width: 70%;
+        }
+
+        button{
+            padding: 10px 15px;
+            border: none;
+            background-color: darkblue;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        li{
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .deleteBtn{
+            background-color: red;
+            margin-left: 10px;
+        }
+
+        #liveText{
+            color: green;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Lecture 5 - DOM Practice</h1>
+
+    <h2>Input Event Example</h2>
+
+    <input type="text" id="nameInput" placeholder="Enter your name">
+
+    <p id="liveText">
+        Typing will appear here...
+    </p>
+
+    <hr>
+
+    <h2>Todo List</h2>
+
+    <input type="text" id="todoInput" placeholder="Enter Todo">
+
+    <button onclick="addTodo()">Add</button>
+
+    <ul id="todoList"></ul>
+
+</div>
+
+<script>
+
+let nameInput = document.getElementById("nameInput")
+let liveText = document.getElementById("liveText")
+
+nameInput.addEventListener("input",function(){
+    liveText.innerText = nameInput.value
+})
+
+let todoInput = document.getElementById("todoInput")
+let todoList = document.getElementById("todoList")
+
+function addTodo()
+{
+    let task = todoInput.value
+
+    if(task=="")
+    {
+        alert("Please enter task")
+        return
+    }
+
+    let li = document.createElement("li")
+    li.innerText = task
+
+    let deleteBtn = document.createElement("button")
+    deleteBtn.innerText = "Delete"
+    deleteBtn.classList.add("deleteBtn")
+
+    deleteBtn.onclick = function()
+    {
+        li.remove()
+    }
+
+    li.appendChild(deleteBtn)
+    todoList.appendChild(li)
+
+    todoInput.value = ""
+}
+
+todoInput.addEventListener("keypress",function(event){
+    if(event.key=="Enter")
+    {
+        addTodo()
+    }
+})
+
+todoInput.addEventListener("focus",function(){
+    todoInput.style.backgroundColor="#dff9fb"
+})
+
+</script>
+
+</body>
+</html>
