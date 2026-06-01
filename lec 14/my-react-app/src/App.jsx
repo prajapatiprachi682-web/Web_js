@@ -58,15 +58,30 @@
 
 
 
-import React from 'react'
-import Home from './Home'
-const App = () => {
-  let data ="hello"
+// import React from 'react'
+// import Home from './Home'
+// const App = () => {
+//   let data ="hello"
+//   return (
+//     <div>
+//       <Home a={data}/>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+import "./App.css";
+import Task from "./Task";
+
+function App() {
   return (
     <div>
-      <Home a={data}/>
+      <Task />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
