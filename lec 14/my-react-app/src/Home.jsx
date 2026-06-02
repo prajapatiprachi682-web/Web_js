@@ -5,33 +5,23 @@
 //     <div>Home</div>
 //   )
 // }
+// const New = () => {
+//     return (
+//       <div>newww fileeeee</div>
+//     )
+//   }
+//   export {New}
 
 // export default Home
 
-
-
 import React from 'react'
-import A from './A'
-const Home = ({a}) => {
-  console.log(a);
+
+const Home = () => {
+    console.log("hellloooooooooo");
+    
   return (
-    <div>
-      <A val={a}/>
-    </div>
+    <div> homeee</div>
   )
 }
 
 export default Home
-
-
-// import React from 'react'
-
-// const Home = () => {
-//   return (
-//     <div>
-//       <h1>hello</h1>
-//       </div>
-//   )
-// }
-
-// export default Home

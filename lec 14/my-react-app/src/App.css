@@ -1,37 +1,14 @@
-body{
-  background-color: #0d1020;
-  color: white;
-  text-align: center;
-}
-
-.products-container{
+#nav{
+  height: 50px;
+  background-color: black;
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 30px;
+  justify-content: space-around;
+  align-items: center;
 }
-
-.card{
-  width: 250px;
-  background: white;
-  color: black;
-  border-radius: 10px;
-  padding: 15px;
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
 }
-
-.card img{
-  width: 100%;
-  height: 180px;
-  object-fit: contain;
-}
-
-.card h3{
-  margin: 10px 0;
-}
-
-.card p{
-  font-size: 18px;
-  font-weight: bold;
+li{
+  color: snow;
 }
