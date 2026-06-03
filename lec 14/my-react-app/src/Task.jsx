@@ -74,15 +74,91 @@
 // };
 
 // export default Task;
-import { useEffect,useState } from 'react'
-import React from 'react'
+// import { useEffect,useState } from 'react'
+// import React from 'react'
+
+// const Task = () => {
+//   return (
+//     <div>
+//       Task
+//     </div>
+//   )
+// }
+
+// export default Task
+
+
+
+
+import { useEffect, useState } from "react"
 
 const Task = () => {
+    let [search,SetSearch]=   useState('')
+       let [ApiData,SetApiData]=   useState([])
+    // console.log(search,"hehe");
+    async function apiCll(){
+        if(!search.trim()){
+            alert("khaliiiiii")
+            return;
+        }
+        console.log("rcbbbbbbbbbbbb");
+        
+       let res=  await fetch(`https://dummyjson.com/products/search?q=${search}`)
+         let data=    await  res.json()
+         console.log(data);
+         SetApiData(data.products)
+         
+        
+    }
+
+
+    useEffect(()=>{
+        fetch('https://dummyjson.com/products').then((res)=>{
+            return res.json()
+
+        }).then((data)=>{
+            console.log(data);
+            SetApiData(data.products)
+            
+        })
+    },[])
+
+
+    function fun1(){
+       let sorteddd=   [...ApiData].sort((a,b)=>{
+            return a.price-b.price
+            
+        })
+
+        SetApiData(sorteddd)
+
+    }
+    function fun2(){
+        let sorteddd=   [...ApiData].sort((a,b)=>{
+             return b.price-a.price
+             
+         })
+         SetApiData(sorteddd)
+ 
+     }
+    
   return (
     <div>
-      Task
+        <input onChange={(e)=>SetSearch(e.target.value)}/>
+        <button onClick={apiCll}>click</button>
+        <button onClick={fun1}>low</button>
+        <button onClick={fun2}>high</button>
+
+        {
+            ApiData.map((a)=>{
+                return(<>
+                 <h3>{a.price}</h3>
+                 <h2>{a.title}</h2>
+                <img  src={a.thumbnail}/>
+                <button>delet</button>
+                </>)
+            })
+        }
     </div>
   )
 }
-
-export default Task

@@ -1,4 +1,4 @@
-#nav{
+/* #nav{
   height: 50px;
   background-color: black;
   display: flex;
@@ -8,6 +8,27 @@
 *{
   margin: 0;
   padding: 0;
+}
+li{
+  color: snow;
+} */
+
+
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+nav{
+  background-color: black;
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
 }
 li{
   color: snow;
