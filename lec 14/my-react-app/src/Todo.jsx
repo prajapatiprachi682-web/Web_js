@@ -3,6 +3,7 @@ import "./Todo.css";
 
 const Todo = () => {
   const [task, setTask] = useState("");
+  let [index,SetIndex]=useState(null)
   const [todos, setTodos] = useState(()=>{
     let data=  localStorage.getItem("key")
     if(data){
@@ -14,6 +15,43 @@ const Todo = () => {
     localStorage.setItem("key",JSON.stringify(todos))
 
   },[todos])
+
+
+
+  function edit(index){
+    setTask(todos[index])
+    SetIndex(index)
+
+  }
+
+
+  function handleAorUpdate(){
+    if(task.trim()==""){
+        return;
+    }
+    console.log("helloooooo");
+    
+    if(index!==null){
+        let updateDATA=[...todos]
+        updateDATA[index]=task
+        setTodos(updateDATA)
+    }else{
+        setTodos([...todos,task])
+        setTask("")
+    }
+    
+
+  }
+
+
+  function d(id){
+   let d= todos.filter((a,b)=>{
+        return id!=b
+
+    })
+    setTodos(d)
+
+  }
 
 
 
@@ -36,7 +74,9 @@ const Todo = () => {
   
         />
 
-<button onClick={()=>setTodos([...todos,task])}>add</button>
+<button onClick={handleAorUpdate}>
+    {index!==null?"update":"Add"}
+    </button>
       </div>
     
 
@@ -46,11 +86,11 @@ const Todo = () => {
             <span>{todo}</span>
 
             <div className="actions">
-              <button >
+              <button onClick={()=>edit(index)}>
                 Edit
               </button>
 
-              <button >
+              <button  onClick={()=>d(index)}>
                 Delete
               </button>
             </div>
