@@ -1,7 +1,7 @@
 // import { useState } from "react"
 
-import { useMemo } from "react"
-import useCounter from "./useCounter"
+import { memo, useMemo, useState } from "react"
+import useCounter from "./useCounter" 
 
 // import { useMemo } from "react";
 // import useCounter from "./useCounter"
@@ -665,29 +665,97 @@ import useCounter from "./useCounter"
 
 // export default App
 
-const App = () => {
-      let {count,inc,dec,reset}=    useCounter(0)
+// const App = () => {
+//       let {count,inc,dec,reset}=    useCounter(0)
 
-    let total=  useMemo(()=>{
-        let res=0
-        for(let i=0;i<1000000000;i++){
-          res+=i
-        }
-        return res
+//     let total=  useMemo(()=>{
+//         let res=0
+//         for(let i=0;i<1000000000;i++){
+//           res+=i
+//         }
+//         return res
 
 
-      },[])
+//       },[])
 
   
-  return (
-    <div>
-      <h4>{count}</h4>
-      <h3>{total}</h3>
-       <button onClick={inc}>++</button>
-       <button onClick={dec}>--</button>
-       <button onClick={reset}>reset</button>
-    </div>
-  )
+//   return (
+//     <div>
+//       <h4>{count}</h4>
+//       <h3>{total}</h3>
+//        <button onClick={inc}>++</button>
+//        <button onClick={dec}>--</button>
+//        <button onClick={reset}>reset</button>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+
+// const App = () => {
+//  let [count,SetCount]= useState(0)
+//   return (
+//     <div>
+//       <h2>{count}</h2>
+//       <button onClick={()=>SetCount(count+1)}>add</button>
+//       <Child/></div>
+//   )
+// }
+
+// let Child=memo(function(){
+//   console.log("hello");
+  
+//   return(<>
+//   </>)
+
+// })
+
+// export default App
+
+// import React from 'react'
+// import NavBar from "./NavBar"
+// import { Route, Routes } from "react-router-dom"
+// import Home from "./Home"
+// import Cart from "./Cart"
+// // http://localhost:5173/
+// const App = () => {
+//   return (
+//     <div>
+//       <NavBar/>
+//       <Routes>
+//         <Route  path="/" element={<Home/>}/>
+//         <Route  path="/cart" element={<Cart/>}/>
+   
+//       </Routes>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+// import React from 'react'
+// import Home from "./Home"
+
+// const App = () => {
+//   return (
+//     <div>
+//       <Home/>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+import Todo from "./Todo";
+
+function App() {
+  return <Todo />;
 }
 
-export default App
+export default App;
